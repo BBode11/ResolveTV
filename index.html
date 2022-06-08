@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ResolveTV</title>
     <link rel="stylesheet" href="style.css">
+    <!--Bootstrap CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!--Axios CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="container d-flex justify-content-center ">
         <div class="jumbotron text-center">
             <h1 class="display-4">TV Show Search</h1>
-            <form>
-                <input type="text" placeholder="Enter TV Show Title" class="form-control" />
+            <form id="searchForm">
+                <input type="text" placeholder="Enter TV Show Title" class="form-control" name="query"/>
                 <button class="btn btn-outline-primary mt-2">Search</button>
             </form>
         </div>
