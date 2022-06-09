@@ -1,9 +1,20 @@
 const form = document.querySelector("#searchForm");
 form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const userInput = form.elements.query.value
-    const res = await axios.get(`https://api.tvmaze.com/search/shows?q=${userInput}`);
-    displayImages(res.data);
+    try {
+        e.preventDefault();
+        const userInput = form.elements.query.value;
+        //Allows for changes to the URL
+        const config = { params: { q: userInput } };
+        const res = await axios.get(`https://api.tvmaze.com/search/shows`, config);
+        displayImages(res.data);
+    }
+    catch (e) {
+        const errorMsg = document.createElement("H2");
+        errorMsg.innerText = "API unavailable please try again later";
+        errorMsg.style.color = "red";
+        document.body.append(errorMsg);
+    }
+
 });
 
 const displayImages = (shows) => {
@@ -12,6 +23,7 @@ const displayImages = (shows) => {
             const img = document.createElement("IMG");
             img.src = result.show.image.medium;
             document.body.append(img);
+            form.reset();
         }
     }
 }
