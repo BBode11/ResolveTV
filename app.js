@@ -22,7 +22,7 @@ const displayImages = (shows) => {
         if (result.show.image) {
             const img = document.createElement("IMG");
             img.src = result.show.image.medium;
-            document.body.append(img);
+            document.getElementById("imgContainer").append(img);
             form.reset();
         }
     }
