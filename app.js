@@ -9,10 +9,9 @@ form.addEventListener("submit", async function (e) {
         displayImages(res.data);
     }
     catch (e) {
-        const errorMsg = document.createElement("H2");
+        const errorMsg = document.querySelector("#errorMsg");
         errorMsg.innerText = "API unavailable please try again later";
-        errorMsg.style.color = "red";
-        document.body.append(errorMsg);
+        errorMsg.classList.add("errorMsg");
     }
 
 });
